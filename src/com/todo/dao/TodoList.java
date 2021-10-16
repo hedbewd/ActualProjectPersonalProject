@@ -231,6 +231,24 @@ public class TodoList {
 		return list;
 	}
 	
+	public ArrayList<String> getCompCate() {
+		ArrayList<String> list = new ArrayList<String>();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			String sql = "SELECT DISTINCT category FROM list WHERE is_completed=1";
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				String category = rs.getString("category");
+				list.add(category);
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public ArrayList<TodoItem> getPriorityList(int priority_num) {
 		ArrayList<TodoItem> list = new ArrayList<TodoItem>();
 		PreparedStatement pstmt;

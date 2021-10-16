@@ -72,7 +72,7 @@ public class TodoUtil {
 		System.out.print("항목의 새로운 마감일자: ");
 		String new_due_date = sc.next();
 		
-		TodoItem t= new TodoItem(new_title, new_description, new_category, new_due_date);
+		TodoItem t= new TodoItem(new_category, new_title, new_description, new_due_date);
 		t.setId(want_edit_num);
 		if (l.updateItem(t) > 0)
 			System.out.println("수정되었습니다!!");
@@ -106,6 +106,12 @@ public class TodoUtil {
 	public static void listComp(TodoList l) {
 		for (TodoItem t : l.getCompletedList()) {
 			System.out.println(t.toString());
+		}
+	}
+	
+	public static void listCompCate(TodoList l) {
+		for (String item : l.getCompCate()) {
+			System.out.println(item + " ");
 		}
 	}
 	

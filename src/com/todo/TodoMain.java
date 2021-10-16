@@ -94,6 +94,10 @@ public class TodoMain {
 				TodoUtil.listComp(l);
 				break;
 				
+			case "ls_comp_cate":
+				TodoUtil.listCompCate(l);
+				break;
+				
 			case "priority":
 				num = sc.nextInt();
 				priority_num = sc.nextInt();
